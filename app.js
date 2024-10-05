@@ -5,9 +5,9 @@ new Vue({
         message: '',
         messages: [],
         photos: [
-            'images/photo1.png',
-            'images/photo2.png',
-            'images/photo3.png'
+            'photo1.png',
+            'photo2.png',
+            'photo3.png'
         ]
     },
     methods: {
