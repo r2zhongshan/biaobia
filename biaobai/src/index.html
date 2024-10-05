@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的表白网站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <header>
+        <h1>我爱你，心爱的人</h1>
+        <div class="music-controls">
+            <button @click="toggleMusic">{{ musicPlaying ? '暂停音乐' : '播放音乐' }}</button>
+            <span class="volume-warning" v-if="!musicPlaying">请调小音量再播放</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="photo-wall">
+            <h2>我们的美好回忆</h2>
+            <div class="photos">
+                <img v-for="photo in photos" :src="photo" :alt="'美好回忆 ' + photo" />
+            </div>
+        </section>
+        <section class="message-board">
+            <h2>留言板</h2>
+            <textarea v-model="message" placeholder="留下你的祝福...                                                                            其实这是假的留言板，关掉网站就会消失了哈哈哈"></textarea>
+            <button @click="addMessage">发送</button>
+            <div class="messages">
+                <div v-for="(msg, index) in messages" :key="index" class="message">
+                    {{ msg }}
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <audio v-if="musicPlaying" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+        您的浏览器不支持音频标签。
+    </audio>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
